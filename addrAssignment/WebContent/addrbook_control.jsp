@@ -31,13 +31,8 @@
 	// 주소록 수정 페이지 요청인 경우
 	else if(action.equals("edit")) {
 		AddrBook abook = ab.getDB(addrbook.getAb_id());
-		if(!request.getParameter("upasswd").equals("1234")) {
-			out.println("<script>alert('비밀번호가 틀렸습니다.!!');history.go(-1);</script>");
-		}
-		else {
-			request.setAttribute("ab",abook);
-			pageContext.forward("addrbook_edit_form.jsp");
-		}
+		request.setAttribute("ab",abook);
+		pageContext.forward("addrbook_edit_form.jsp");
 	}
 	// 주소록 수정 등록 요청인 경우
 	else if(action.equals("update")) {

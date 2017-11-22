@@ -6,8 +6,7 @@
 
 <script type="text/javascript">
    function check(ab_id) {
-      pwd = prompt('수정/삭제 하려면 비밀번호를 넣으세요');
-      document.location.href="addrbook_control.jsp?action=edit&ab_id="+ab_id+"&upasswd="+pwd;
+      document.location.href="addrbook_control.jsp?action=edit&ab_id="+ab_id;
    }
 </script>
 
@@ -30,7 +29,7 @@
          for(AddrBook ab : (ArrayList<AddrBook>)datas) {  //datas에 뭐가 있으면 계속 끄집어냄
          %>
            <tr>
-            <td><a href="addrbook_edit_form.jsp"><%=ab.getAb_id() %></a></td>
+            <td><a href="javascript:check(<%=ab.getAb_id()%>)"><%=ab.getAb_id() %></a></td>
             <td><%=ab.getAb_name() %></td> <!-- %안에 있는건 system.out.print에 해당되므로 ; 필요없음 -->
             <td><%=ab.getAb_tel() %></td>
             <td><%=ab.getAb_birth() %></td>

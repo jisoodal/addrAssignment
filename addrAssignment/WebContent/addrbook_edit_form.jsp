@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" errorPage="addrbook_error.jsp"%>
 <%@page import = "addrAssignment.addrbook.*, java.util.*" %>
 <!DOCTYPE HTML>
-<jsp:useBean id="ab" class="addrAssignment.addrbook.AddrBook"/>
+<jsp:useBean id="ab" scope="request" class="addrAssignment.addrbook.AddrBook"/>
 
 <html>
 <head>
@@ -30,12 +30,12 @@
 <HR>
 [<a href=addrbook_control.jsp?action=list>주소록 목록으로</a>] <p>
 <form name=form1 method=post action=addrbook_control.jsp>
-<input type=hidden name="ab_id" value="">
+<input type=hidden name="ab_id" value="<%=ab.getAb_id()%>">
 <input type=hidden name="action" value="update">
 
 <table border="1">
   <tr>
-    <th>이 름</th>
+    <th>이 름</th> 
     <td><input type="text" name="ab_name" value="<%=ab.getAb_name() %>"></td>
   </tr>
   <tr>
